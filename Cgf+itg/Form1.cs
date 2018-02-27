@@ -390,26 +390,19 @@ else
             DriveInfo[] allDrivers = DriveInfo.GetDrives();
             foreach (DriveInfo d in allDrivers)
             {
-                NameDisk.Items.Add(d.Name);
+                if (d.RootDirectory.Exists)
+                {
+                    NameDisk.Items.Add(d.Name);
+                }
+                
             }
             
         }
 
-        private void GO_EnabledChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GO_EnabledChanged_1(object sender, EventArgs e)
-        {
-        
-        }
 
 
-        private void GO_VisibleChanged(object sender, EventArgs e)
-        {
 
-        }
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -548,15 +541,9 @@ else
 
         }
 
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -666,10 +653,7 @@ else
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void button9_Click(object sender, EventArgs e)
         {
@@ -689,10 +673,7 @@ else
 
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
 
-        }
 
         private void button8_Click(object sender, EventArgs e)
         {
@@ -775,7 +756,7 @@ else
 
                                     //if (j == 1)
                                     //{
-                                        a1 = "LP990";
+                                        a1 = LPName.Text;
                                     //}
                                     if (j == 1)
                                     {
@@ -848,10 +829,7 @@ else
             MessageBox.Show("Готово", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
-        private void NameDisk_TextUpdate(object sender, EventArgs e)
-        {
 
-        }
 
         private void NameDisk_TextChanged(object sender, EventArgs e)
         {
@@ -871,25 +849,13 @@ else
             }
         }
 
-        private void NameDisk_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+ 
 
-        }
 
-        private void Diagn20400_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void NameDir_SelectedValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void NameDir_SelectedValueChanged_1(object sender, EventArgs e)
         {

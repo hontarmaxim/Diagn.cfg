@@ -71,6 +71,7 @@
             this.NameDir = new System.Windows.Forms.ComboBox();
             this.NameDisk = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.LPName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -193,7 +194,6 @@
             this.textBox2.Size = new System.Drawing.Size(117, 20);
             this.textBox2.TabIndex = 11;
             this.textBox2.Text = "obd1_slp.itg";
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button1
             // 
@@ -230,7 +230,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Настройки для файла OBD1_SLPx";
             this.groupBox2.Visible = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // button4
             // 
@@ -325,12 +324,11 @@
             // 
             // Diagn20400
             // 
-            this.Diagn20400.Location = new System.Drawing.Point(220, 7);
+            this.Diagn20400.Location = new System.Drawing.Point(220, 62);
             this.Diagn20400.Name = "Diagn20400";
             this.Diagn20400.Size = new System.Drawing.Size(109, 20);
             this.Diagn20400.TabIndex = 16;
             this.Diagn20400.Text = "NewFile.itg";
-            this.Diagn20400.TextChanged += new System.EventHandler(this.Diagn20400_TextChanged);
             // 
             // groupBox4
             // 
@@ -402,7 +400,6 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(89, 20);
             this.textBox9.TabIndex = 15;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // groupBox6
             // 
@@ -468,6 +465,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.LPName);
             this.tabPage1.Controls.Add(this.statusStrip1);
             this.tabPage1.Controls.Add(this.NameDir);
             this.tabPage1.Controls.Add(this.NameDisk);
@@ -509,8 +507,6 @@
             this.NameDir.Size = new System.Drawing.Size(161, 150);
             this.NameDir.Sorted = true;
             this.NameDir.TabIndex = 20;
-            this.NameDir.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.NameDir.TextUpdate += new System.EventHandler(this.NameDisk_TextUpdate);
             this.NameDir.SelectedValueChanged += new System.EventHandler(this.NameDir_SelectedValueChanged_1);
             // 
             // NameDisk
@@ -520,7 +516,6 @@
             this.NameDisk.Name = "NameDisk";
             this.NameDisk.Size = new System.Drawing.Size(39, 21);
             this.NameDisk.TabIndex = 19;
-            this.NameDisk.SelectedIndexChanged += new System.EventHandler(this.NameDisk_SelectedIndexChanged);
             this.NameDisk.TextChanged += new System.EventHandler(this.NameDisk_TextChanged);
             // 
             // tabPage2
@@ -535,6 +530,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "40400";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // LPName
+            // 
+            this.LPName.Location = new System.Drawing.Point(220, 6);
+            this.LPName.Name = "LPName";
+            this.LPName.Size = new System.Drawing.Size(109, 20);
+            this.LPName.TabIndex = 22;
+            this.LPName.Text = "LP990";
             // 
             // Form1
             // 
@@ -614,6 +617,7 @@
         private System.Windows.Forms.ComboBox NameDir;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StDir;
+        private System.Windows.Forms.TextBox LPName;
     }
 }
 

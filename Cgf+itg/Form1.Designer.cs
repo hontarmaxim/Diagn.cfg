@@ -34,6 +34,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.GO = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PGNumber = new System.Windows.Forms.NumericUpDown();
+            this.LPnumber = new System.Windows.Forms.NumericUpDown();
             this.button6 = new System.Windows.Forms.Button();
             this.confirm = new System.Windows.Forms.CheckBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -41,20 +43,10 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.NameNewFile = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.x3 = new System.Windows.Forms.RadioButton();
-            this.x2 = new System.Windows.Forms.RadioButton();
-            this.ISX_X = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
             this.But20400 = new System.Windows.Forms.Button();
             this.Diagn20400 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -62,19 +54,17 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.y2 = new System.Windows.Forms.RadioButton();
             this.y1 = new System.Windows.Forms.RadioButton();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.LPName = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StDir = new System.Windows.Forms.ToolStripStatusLabel();
             this.NameDir = new System.Windows.Forms.ComboBox();
             this.NameDisk = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.LPName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PGNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LPnumber)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -129,6 +119,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.PGNumber);
+            this.groupBox1.Controls.Add(this.LPnumber);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.confirm);
             this.groupBox1.Controls.Add(this.textBox4);
@@ -142,10 +134,34 @@
             this.groupBox1.Controls.Add(this.itg);
             this.groupBox1.Location = new System.Drawing.Point(3, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(230, 163);
+            this.groupBox1.Size = new System.Drawing.Size(342, 163);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Настройки для файла OBD1_SLP1";
+            // 
+            // PGNumber
+            // 
+            this.PGNumber.Location = new System.Drawing.Point(216, 135);
+            this.PGNumber.Name = "PGNumber";
+            this.PGNumber.Size = new System.Drawing.Size(37, 20);
+            this.PGNumber.TabIndex = 19;
+            this.PGNumber.Value = new decimal(new int[] {
+            13,
+            0,
+            0,
+            0});
+            // 
+            // LPnumber
+            // 
+            this.LPnumber.Location = new System.Drawing.Point(216, 107);
+            this.LPnumber.Name = "LPnumber";
+            this.LPnumber.Size = new System.Drawing.Size(37, 20);
+            this.LPnumber.TabIndex = 18;
+            this.LPnumber.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // button6
             // 
@@ -168,7 +184,6 @@
             this.confirm.Text = "confirm";
             this.confirm.UseVisualStyleBackColor = true;
             this.confirm.Visible = false;
-            this.confirm.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // textBox4
             // 
@@ -216,90 +231,6 @@
             this.NameNewFile.Text = "newOBD1_SLP.itg";
             this.NameNewFile.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Controls.Add(this.ISX_X);
-            this.groupBox2.Location = new System.Drawing.Point(250, 7);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(497, 163);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Настройки для файла OBD1_SLPx";
-            this.groupBox2.Visible = false;
-            // 
-            // button4
-            // 
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(287, 91);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(89, 38);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "OBD1_SLPx";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(382, 62);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(109, 20);
-            this.textBox5.TabIndex = 14;
-            this.textBox5.Text = "LP002";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(382, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(109, 20);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Text = "LP001";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.x3);
-            this.groupBox3.Controls.Add(this.x2);
-            this.groupBox3.Location = new System.Drawing.Point(287, 19);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(89, 66);
-            this.groupBox3.TabIndex = 12;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "x=2 and x=3";
-            // 
-            // x3
-            // 
-            this.x3.AutoSize = true;
-            this.x3.Location = new System.Drawing.Point(6, 43);
-            this.x3.Name = "x3";
-            this.x3.Size = new System.Drawing.Size(42, 17);
-            this.x3.TabIndex = 11;
-            this.x3.Text = "x=3";
-            this.x3.UseVisualStyleBackColor = true;
-            this.x3.CheckedChanged += new System.EventHandler(this.x3_CheckedChanged);
-            // 
-            // x2
-            // 
-            this.x2.AutoSize = true;
-            this.x2.Location = new System.Drawing.Point(6, 20);
-            this.x2.Name = "x2";
-            this.x2.Size = new System.Drawing.Size(42, 17);
-            this.x2.TabIndex = 10;
-            this.x2.Text = "x=2";
-            this.x2.UseVisualStyleBackColor = true;
-            this.x2.CheckedChanged += new System.EventHandler(this.x2_CheckedChanged);
-            // 
-            // ISX_X
-            // 
-            this.ISX_X.Location = new System.Drawing.Point(6, 19);
-            this.ISX_X.Multiline = true;
-            this.ISX_X.Name = "ISX_X";
-            this.ISX_X.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ISX_X.Size = new System.Drawing.Size(275, 110);
-            this.ISX_X.TabIndex = 9;
-            // 
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(53, 162);
@@ -332,47 +263,25 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox12);
-            this.groupBox4.Controls.Add(this.textBox11);
             this.groupBox4.Controls.Add(this.button5);
             this.groupBox4.Controls.Add(this.textBox10);
             this.groupBox4.Controls.Add(this.textBox8);
             this.groupBox4.Controls.Add(this.textBox9);
             this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Controls.Add(this.textBox7);
-            this.groupBox4.Controls.Add(this.textBox6);
             this.groupBox4.Enabled = false;
-            this.groupBox4.Location = new System.Drawing.Point(3, 180);
+            this.groupBox4.Location = new System.Drawing.Point(363, 7);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(744, 271);
+            this.groupBox4.Size = new System.Drawing.Size(202, 163);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Настройки для файла OBD_SHGSy";
             // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(7, 204);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox12.Size = new System.Drawing.Size(636, 61);
-            this.textBox12.TabIndex = 20;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(310, 109);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox11.Size = new System.Drawing.Size(333, 88);
-            this.textBox11.TabIndex = 19;
-            // 
             // button5
             // 
             this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(649, 204);
+            this.button5.Location = new System.Drawing.Point(6, 71);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(89, 61);
+            this.button5.Size = new System.Drawing.Size(89, 24);
             this.button5.TabIndex = 18;
             this.button5.Text = "OBD_SHGSy";
             this.button5.UseVisualStyleBackColor = true;
@@ -380,7 +289,7 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(649, 177);
+            this.textBox10.Location = new System.Drawing.Point(107, 71);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(89, 20);
             this.textBox10.TabIndex = 17;
@@ -388,7 +297,7 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(649, 142);
+            this.textBox8.Location = new System.Drawing.Point(107, 45);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(89, 20);
             this.textBox8.TabIndex = 16;
@@ -396,7 +305,7 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(649, 109);
+            this.textBox9.Location = new System.Drawing.Point(107, 19);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(89, 20);
             this.textBox9.TabIndex = 15;
@@ -405,9 +314,9 @@
             // 
             this.groupBox6.Controls.Add(this.y2);
             this.groupBox6.Controls.Add(this.y1);
-            this.groupBox6.Location = new System.Drawing.Point(649, 19);
+            this.groupBox6.Location = new System.Drawing.Point(6, 14);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(89, 84);
+            this.groupBox6.Size = new System.Drawing.Size(89, 51);
             this.groupBox6.TabIndex = 13;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "y=1 and y=2";
@@ -415,7 +324,7 @@
             // y2
             // 
             this.y2.AutoSize = true;
-            this.y2.Location = new System.Drawing.Point(6, 43);
+            this.y2.Location = new System.Drawing.Point(6, 34);
             this.y2.Name = "y2";
             this.y2.Size = new System.Drawing.Size(42, 17);
             this.y2.TabIndex = 11;
@@ -426,31 +335,13 @@
             // y1
             // 
             this.y1.AutoSize = true;
-            this.y1.Location = new System.Drawing.Point(6, 20);
+            this.y1.Location = new System.Drawing.Point(6, 19);
             this.y1.Name = "y1";
             this.y1.Size = new System.Drawing.Size(42, 17);
             this.y1.TabIndex = 10;
             this.y1.Text = "y=1";
             this.y1.UseVisualStyleBackColor = true;
             this.y1.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(310, 19);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox7.Size = new System.Drawing.Size(333, 84);
-            this.textBox7.TabIndex = 1;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(6, 19);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox6.Size = new System.Drawing.Size(298, 178);
-            this.textBox6.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -460,7 +351,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(754, 479);
+            this.tabControl1.Size = new System.Drawing.Size(587, 206);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage1
@@ -475,19 +366,27 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(746, 453);
+            this.tabPage1.Size = new System.Drawing.Size(579, 180);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "20400";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // LPName
+            // 
+            this.LPName.Location = new System.Drawing.Point(220, 6);
+            this.LPName.Name = "LPName";
+            this.LPName.Size = new System.Drawing.Size(109, 20);
+            this.LPName.TabIndex = 22;
+            this.LPName.Text = "LP990";
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StDir});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 428);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 155);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStrip1.Size = new System.Drawing.Size(740, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(573, 22);
             this.statusStrip1.TabIndex = 21;
             this.statusStrip1.Text = "statusName";
             // 
@@ -502,7 +401,7 @@
             // 
             this.NameDir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.NameDir.FormattingEnabled = true;
-            this.NameDir.Location = new System.Drawing.Point(53, 6);
+            this.NameDir.Location = new System.Drawing.Point(51, 6);
             this.NameDir.Name = "NameDir";
             this.NameDir.Size = new System.Drawing.Size(161, 150);
             this.NameDir.Sorted = true;
@@ -522,28 +421,19 @@
             // 
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.groupBox4);
-            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(746, 453);
+            this.tabPage2.Size = new System.Drawing.Size(579, 180);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "40400";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // LPName
-            // 
-            this.LPName.Location = new System.Drawing.Point(220, 6);
-            this.LPName.Name = "LPName";
-            this.LPName.Size = new System.Drawing.Size(109, 20);
-            this.LPName.TabIndex = 22;
-            this.LPName.Text = "LP990";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 479);
+            this.ClientSize = new System.Drawing.Size(587, 206);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -555,10 +445,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PGNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LPnumber)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -586,26 +474,14 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox confirm;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox ISX_X;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton x3;
-        private System.Windows.Forms.RadioButton x2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RadioButton y2;
         private System.Windows.Forms.RadioButton y1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox Diagn20400;
         private System.Windows.Forms.Button But20400;
@@ -618,6 +494,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StDir;
         private System.Windows.Forms.TextBox LPName;
+        private System.Windows.Forms.NumericUpDown PGNumber;
+        private System.Windows.Forms.NumericUpDown LPnumber;
     }
 }
 

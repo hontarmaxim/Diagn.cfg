@@ -239,7 +239,15 @@ if (DostParsN==3 && DostParsK!=2 && DostParsF!=1)
                                             
                                                 if (j==1)
                                                 {
-                                                    a1 = s;
+                                                    if (s.Length > PGNumber.Value | s.Length > LPnumber.Value)
+                                                    {
+                                                        a1 = s.TrimEnd(s[s.Length - 1]);
+                                                    }
+                                                    else
+                                                    {
+                                                        a1 = s;
+                                                    }
+                                                    
                                                 }
                                                 if (j == 2)
                                                 {
@@ -256,7 +264,7 @@ if (DostParsN==3 && DostParsK!=2 && DostParsF!=1)
 												
                                                 a4 = "INT";
 											    
-                                                fileOutNew.WriteLine("#ТЕХ ПРЕФИКС=" + a1 + ", ПАРАМ=" + a2 + ", АТР=" + a3 + ", ТИП=" + a4);
+                                                fileOutNew.WriteLine("\t#ТЕХ ПРЕФИКС=" + a1 + ", ПАРАМ=" + a2 + ", АТР=" + a3 + ", ТИП=" + a4);
                                                 j = 0;
                                             }
                                             else
@@ -265,7 +273,7 @@ if (DostParsN==3 && DostParsK!=2 && DostParsF!=1)
                                                 {
                                                
                                                 a4 = s;
-                                                    fileOutNew.WriteLine("#ТЕХ ПРЕФИКС=" + a1 + ", ПАРАМ=" + a2 + ", АТР=" + a3 + ", ТИП=" + a4);
+                                                    fileOutNew.WriteLine("\t#ТЕХ ПРЕФИКС=" + a1 + ", ПАРАМ=" + a2 + ", АТР=" + a3 + ", ТИП=" + a4);
                                                     j = 0;
                                                 }
                                                 else
@@ -273,7 +281,7 @@ if (DostParsN==3 && DostParsK!=2 && DostParsF!=1)
                                                 
                                                 a4 = "BOOL";
 
-                                                    fileOutNew.WriteLine("#ТЕХ ПРЕФИКС=" + a1 + ", ПАРАМ=" + a2 + ", АТР=" + a3 + ", ТИП=" + a4);
+                                                    fileOutNew.WriteLine("\t#ТЕХ ПРЕФИКС=" + a1 + ", ПАРАМ=" + a2 + ", АТР=" + a3 + ", ТИП=" + a4);
                                                     j = 0;
                                                 }
                                             }
@@ -292,7 +300,9 @@ else
 			{ 
 				OneTick=0;
 				DostParsN=0;
-			}
+                        fileOutNew.WriteLine("\n\n\n");
+
+            }
 			else
 			{
 				if(DostParsF ==1)
@@ -338,7 +348,7 @@ else
 
             //закрыть обработчик
             //Close();
-            groupBox2.Enabled = true;
+            //groupBox2.Enabled = true;
             groupBox4.Enabled = true;
 
         }
@@ -359,9 +369,9 @@ else
                 DirectoryInfo drInfo2 = new DirectoryInfo(path + "\\tmp2");
                 drInfo2.Create();
                 newFolderName2 = drInfo2.FullName;
-                DirectoryInfo drInfo3 = new DirectoryInfo(path + "\\tmp3");
-                drInfo3.Create();
-                newFolderName3 = drInfo3.FullName;
+                //DirectoryInfo drInfo3 = new DirectoryInfo(path + "\\tmp3");
+                //drInfo3.Create();
+                //newFolderName3 = drInfo3.FullName;
                 DirectoryInfo drInfo = new DirectoryInfo(path+"\\tmp");
                 drInfo.Create();
 
@@ -450,94 +460,20 @@ else
             textBox4.Enabled = false;
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            //GO.Enabled = true;
-            //confirm.Enabled = false;
-        }
 
-        private void x2_CheckedChanged(object sender, EventArgs e)
-        {
-            ISX_X.Text = "/*VERPO=\r\n#ОБД ХОСТ=12,МАРК=ОБД1_2СЛП\r\n#АПКС НС=1,АДРЕС=12\r\n#АПКС НС=2,АДРЕС=12, АДГР={110}\r\n/*BDSLP";
-            button4.Enabled = true;
-            textBox5.Text = "LP002";
-        }
 
-        private void x3_CheckedChanged(object sender, EventArgs e)
-        {
-            ISX_X.Text = "/*VERPO=\r\n#ОБД ХОСТ=13,МАРК=ОБД1_3СЛП\r\n#АПКС НС=1,АДРЕС=13\r\n#АПКС НС=2,АДРЕС=13, АДГР={110}\r\n/*BDSLP";
-            button4.Enabled = true;
-            textBox5.Text = "LP003";
-        }
 
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-
-            if (x2.Checked == true || x3.Checked == false)
-            {
-                nameXX = "newOBD1_SLP2.itg";
-                File.Delete(newFolderName + "\\" + nameXX);
-            }
-            else
-            {
-                if (x2.Checked == false || x3.Checked == true)
-                {
-                    nameXX = "newOBD1_SLP3.itg";
-                    File.Delete(newFolderName + "\\" + nameXX);
-                }
-                else
-                {
-                    return;
-                }
-            }
-            
-            var encod = System.Text.Encoding.GetEncoding(866);
-
-            int count = System.IO.File.ReadAllLines(newFolderName + "\\" + NameNewFile.Text).Length;
-
-            StreamReader fileIn = new StreamReader(newFolderName + "\\" + NameNewFile.Text, encod);
-            string line = null;
-
-            StreamWriter fileOut = new StreamWriter(newFolderName + "\\" + nameXX, true, encod);
-            fileOut.Write(ISX_X.Text);
-            fileOut.WriteLine("\n");
-            for (int l = 0; l <= count; l++)
-            {
-                if ((line = fileIn.ReadLine()) == "/*BDSLP")
-                {
-                    while ((line = fileIn.ReadLine()) != "#КОНЕЦ")
-                    {
-                        line = line.Replace(textBox1.Text, textBox5.Text);
-                        fileOut.WriteLine(line);
-                        
-                    }
-
-                }
-            }
-            fileOut.WriteLine("#КОНЕЦ");
-
-            fileIn.Close();
-            fileOut.Close();
-        }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            textBox6.Text = "#ОБД ХОСТ=10,МАРК=\"ОБД_1ШГС\"\r\n#АПКС НС=2,АДРЕС=10, АДГР={120}\r\n#АПКС НС=3,АДРЕС=10, АДГР={130}\r\n/*прием данных  от СЛП\r\n#БД_ВН НОМЕР=5,АБН={С:2:11}\r\n#БД_ВН НОМЕР=5,АБН={С:2:12}\r\n/*приме данных ПОЧТОВЫХ ЯЩИКОВ от СД\r\n#БД_ВН НОМЕР=1,АБН={С:3:100}\r\n";
             textBox9.Text = "GS001";
-            textBox7.Text = "/*_описание блока данных ОД выдачи в СД\n /*_данные_Линейного_пункта_LP001\n#БД НОМЕР=6,ТИП=ВЫВОД,АБН={С:3:140:Г},ЦИКЛ=100, ДАННЫЕ=\n{";
-            textBox11.Text = "/*_описание блока данных ОД выдачи в СД\n/*_обобщенные_данные_Перегона_PG001002\n#БД НОМЕР=7,ТИП=ВЫВОД,АБН={С:3:140:Г},ЦИКЛ=100, ДАННЫЕ=\n{";
             button5.Enabled = true;
-            textBox12.Text = "/*_описание_блока_диагн_данных_от_шлюзового_процесса \r\n#ДИАГН_НРС_ВН АБН={С:3:200}";
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            textBox6.Text = "#ОБД ХОСТ=20,МАРК=\"ОБД_2ШГС\"\r\n#АПКС НС=2,АДРЕС=20, АДГР={120}\r\n#АПКС НС=3,АДРЕС=20, АДГР={130}\r\n/*прием данных  от СЛП\r\n#БД_ВН НОМЕР=5,АБН={С:2:11}\r\n#БД_ВН НОМЕР=5,АБН={С:2:12}\r\n/*приме данных ПОЧТОВЫХ ЯЩИКОВ от СД\r\n#БД_ВН НОМЕР=1,АБН={С:3:100}\r\n";
             textBox9.Text = "GS004";
-            textBox7.Text = "/*_описание блока данных ОД выдачи в СД\n /*_данные_Линейного_пункта_LP001\n#БД НОМЕР=6,ТИП=ВЫВОД,АБН={С:3:140:Г},ЦИКЛ=100, ДАННЫЕ=\n{";
-            textBox11.Text = "/*_описание блока данных ОД выдачи в СД\n/*_обобщенные_данные_Перегона_PG001002\n#БД НОМЕР=7,ТИП=ВЫВОД,АБН={С:3:140:Г},ЦИКЛ=100, ДАННЫЕ=\n{";
             button5.Enabled = true;
-            textBox12.Text = "/*_описание_блока_диагн_данных_от_шлюзового_процесса \r\n#ДИАГН_НРС_ВН АБН={С:3:200}";
 
         }
 
@@ -574,7 +510,6 @@ else
             string line = null;
 
             StreamWriter fileOut = new StreamWriter(newFolderName + "\\" + nameXX, true, encod);
-            fileOut.Write(textBox6.Text);
             fileOut.WriteLine("\n");
 
 
@@ -592,35 +527,35 @@ else
                     }
 
                 }
-                fileOut.WriteLine("\n");
-                if ((line = fileIn.ReadLine()) == "/*BD2")
-                {
-                    fileOut.WriteLine(textBox11.Text); 
-                    while ((line = fileIn.ReadLine()) != "/*BD1")
-                    {
-                        line = line.Replace(textBox10.Text + textBox8.Text + ".", textBox9.Text + textBox8.Text + ".");
-                        line = line.Replace(textBox10.Text + ".", textBox9.Text + textBox10.Text + ".");
-                        line = line.Replace("K06_123", textBox9.Text + "K06_123");
-                        fileOut.WriteLine(line);
+                //fileOut.WriteLine("\n");
+                //if ((line = fileIn.ReadLine()) == "/*BD2")
+                //{
+                //    fileOut.WriteLine(textBox11.Text); 
+                //    while ((line = fileIn.ReadLine()) != "/*BD1")
+                //    {
+                //        line = line.Replace(textBox10.Text + textBox8.Text + ".", textBox9.Text + textBox8.Text + ".");
+                //        line = line.Replace(textBox10.Text + ".", textBox9.Text + textBox10.Text + ".");
+                //        line = line.Replace("K06_123", textBox9.Text + "K06_123");
+                //        fileOut.WriteLine(line);
 
-                    }
-                    fileOut.WriteLine("}");
-                    fileOut.WriteLine("\n");
+                //    }
+                //    fileOut.WriteLine("}");
+                //    fileOut.WriteLine("\n");
 
-                    fileOut.WriteLine(textBox7.Text);
-                    while ((line = fileIn.ReadLine()) != "#КОНЕЦ")
-                    {
-                        line = line.Replace(textBox10.Text + textBox8.Text + ".", textBox9.Text + textBox8.Text + ".");
-                        line = line.Replace(textBox10.Text + ".", textBox9.Text + textBox10.Text + ".");
-                        line = line.Replace("K06_123", textBox9.Text + "K06_123");
-                        fileOut.WriteLine(line);
+                //    fileOut.WriteLine(textBox7.Text);
+                //    while ((line = fileIn.ReadLine()) != "#КОНЕЦ")
+                //    {
+                //        line = line.Replace(textBox10.Text + textBox8.Text + ".", textBox9.Text + textBox8.Text + ".");
+                //        line = line.Replace(textBox10.Text + ".", textBox9.Text + textBox10.Text + ".");
+                //        line = line.Replace("K06_123", textBox9.Text + "K06_123");
+                //        fileOut.WriteLine(line);
 
-                    }
-                    fileOut.WriteLine(textBox12.Text);
-                    fileOut.WriteLine("\n");
-                    fileOut.WriteLine("#КОНЕЦ");
-                    break;
-                }
+                //    }
+                //    fileOut.WriteLine(textBox12.Text);
+                //    fileOut.WriteLine("\n");
+                //    fileOut.WriteLine("#КОНЕЦ");
+                //    break;
+                //}
           
 
 

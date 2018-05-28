@@ -408,12 +408,7 @@ else
             }
             
         }
-
-
-
-
-
-
+        
         private void button1_Click_1(object sender, EventArgs e)
         {
             try
@@ -460,10 +455,6 @@ else
             textBox4.Enabled = false;
         }
 
-
-
-
-
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             textBox9.Text = "GS001";
@@ -476,10 +467,6 @@ else
             button5.Enabled = true;
 
         }
-
-
-
-
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -588,8 +575,6 @@ else
 
         }
 
-
-
         private void button9_Click(object sender, EventArgs e)
         {
             try
@@ -607,9 +592,7 @@ else
             catch (Exception ex) { MessageBox.Show("Ошибка во время выбора архива для разархивации, попробуйте еще раз! " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
         }
-
-
-
+                
         private void button8_Click(object sender, EventArgs e)
         {
 
@@ -763,9 +746,7 @@ else
             fileOutNew.Close();
             MessageBox.Show("Готово", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
-
-
-
+        
         private void NameDisk_TextChanged(object sender, EventArgs e)
         {
             NameDir.Items.Clear();
@@ -783,15 +764,7 @@ else
                 }
             }
         }
-
-
-
- 
-
-
-
-
-
+        
         private void NameDir_SelectedValueChanged_1(object sender, EventArgs e)
         {
 
